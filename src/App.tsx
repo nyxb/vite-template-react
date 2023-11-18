@@ -1,50 +1,9 @@
 import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
-import logo from './logo.svg'
+import ImageLink from './components/ImageLink'
+import { HOME_LINKS } from './constants'
 
-// React-Funktionskomponente
-export default function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <AppContainer>
-      <AppHeader>
-        <AppLogo src={logo} alt="logo" />
-        <h1>Vite + React</h1>
-        <p>
-          <StyledButton onClick={() => setCount(count => count + 1)}>
-            count is
-            {' '}
-            {count}
-          </StyledButton>
-        </p>
-        <p>
-          Edit
-          {' '}
-          <code>App.tsx</code>
-          {' '}
-          and save to test HMR updates.
-        </p>
-        <p>
-          <AppLink href="https://react.dev" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </AppLink>
-          {' | '}
-          <AppLink href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener noreferrer">
-            Vite Docs
-          </AppLink>
-        </p>
-      </AppHeader>
-    </AppContainer>
-  )
-}
-
-// Styled Components
-const AppContainer = styled.div`
-  text-align: center;
-`
-
-const rotate = keyframes`
+const spin = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -53,30 +12,97 @@ const rotate = keyframes`
   }
 `
 
-const AppLogo = styled.img`
-  height: 40vmin;
-  pointer-events: none;
+export default function App() {
+  const [count, setCount] = useState(0)
 
-  @media (prefers-reduced-motion: no-preference) {
-    animation: ${rotate} infinite 20s linear;
+  const handleClick = () => {
+    setCount(count => count + 1)
   }
-`
 
-const AppHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
+  return (
+    <Root>
+      <div>
+        {
+          HOME_LINKS.map(imageLink => (
+            <StyledImageLink key={imageLink.alt} {...imageLink} />
+          ))
+        }
+      </div>
+      <h1>Developed with Vite, React, Styled Components, and Vitest, complemented by TypeScript.</h1>
+      <Card>
+        <button type="button" onClick={handleClick}>
+          count is
+          {' '}
+          {count}
+        </button>
+        <p>
+          Edit
+          {' '}
+          <code>src/App.tsx</code>
+          {' '}
+          and save to test HMR
+        </p>
+      </Card>
+      <ReadTheDocs>
+        Click on the logos to learn more about the technologies used in this template
+      </ReadTheDocs>
+      <div>
+        <p>
+          Use this
+          {' '}
+          <a href="https://github.com/nyxb/vite-template-react" target="_blank" rel="noreferrer">template</a>
+        </p>
+        <p>
+          Follow me at
+          {' '}
+          <a href="https://github.com/nyxb" target="_blank" rel="noreferrer">github</a>
+        </p>
+        <p>
+          Look at my other projects at
+          {' '}
+          <a href="https://nyxb.nexus/projects" target="_blank" rel="noreferrer">nyxb</a>
+        </p>
+      </div>
+    </Root>
+  )
+}
+
+const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
 `
 
-const AppLink = styled.a`
-  color: #61dafb;
+const StyledImageLink = styled(ImageLink)`
+  img {
+    height: 6em; // Stellt sicher, dass alle Bilder diese Höhe haben
+  }
+  padding: 1.5em;
+  will-change: filter;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+
+  &.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+
+  &:nth-child(4) img {
+    animation: ${spin} infinite 20s linear;
+  }
 `
 
-const StyledButton = styled.button`
-  font-size: calc(10px + 2vmin);
+const Card = styled.div`
+  padding: 2em;
+`
+
+const ReadTheDocs = styled.p`
+  color: #888;
 `
