@@ -10,6 +10,11 @@ export const HOME_LINKS = [
     alt: 'Vitest logo',
   },
   {
+    src: '/styled-component.svg',
+    href: 'https://styled-components.com/',
+    alt: 'Styled Component logo',
+  },
+  {
     src: '/react.svg',
     href: 'https://react.dev/',
     alt: 'React logo',
