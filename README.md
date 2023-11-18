@@ -24,6 +24,11 @@ To get a local copy of the code, use nyxbi cli:
 ```
 npx nyxbi init -t vite-template-react my-app
 ```
+and follow the instructions. after that, you can run:
+
+```sh
+bun dev
+```
 
 And then open http://localhost:3000 to view it in the browser.
 
