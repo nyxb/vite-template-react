@@ -15,60 +15,14 @@
     A <a href="https://vitejs.dev">Vite</a> + <a href="https://react.dev">React</a> starter template.
 </p>
 
-![Vite Template React](https://github.com/nyxb/vite-template-react/assets/48409548/4b1eb99e-01b8-4752-91c0-76930e7948c1)
-
-## Folder Structure
-
-No configuration or complicated folder structures, just the files you need to build your app:
-
-```
-vite-template-react
-├── node_modules
-├── public
-│   ├── favicon.svg
-│   └── robots.txt
-└── src
-    ├── App.css
-    ├── App.jsx
-    ├── App.test.jsx
-    ├── index.css
-    ├── index.jsx
-    └── logo.svg
-    └── setupTests.js
-├── .gitignore
-├── index.html
-├── package.json
-├── README.md
-├── vite.config.js
-```
+![Alt text](./assets/NyxbShot-2023-11-19-at-00.27.51@2x.png)
 
 ## Development
 
-To get a local copy of the code, clone it using git:
+To get a local copy of the code, use nyxbi cli:
 
 ```
-git clone https://github.com/SafdarJamal/vite-template-react.git
-cd vite-template-react
-```
-
-Make it your own:
-
-```
-rm -rf .git && git init && npm init
-git add .
-git commit -m "Initial commit"
-```
-
-Install dependencies:
-
-```
-bun i
-```
-
-Now, you can start a local web server by running:
-
-```
-bun start
+npx nyxbi init -t vite-template-react my-app
 ```
 
 And then open http://localhost:3000 to view it in the browser.
@@ -83,10 +37,79 @@ In this project, you can run the following scripts:
 | bun test      | Launches the test runner in the interactive watch mode. |
 | bun run build | Builds the app for production to the `dist` folder.     |
 | bun run serve | Serves the production build from the `dist` folder.     |
+| bun run test  | Runs tests with vitest.                                 |
+| bun run coverage | Runs tests with code coverage                        |
+
+or you can simply use [nyxi](https://github.com/nyxb/nyxi) and just enter `nyxr` and select your script
+
+install it with:
+
+```sh
+npm install -g @nyxb/nyxi
+```
+
+## Folder Structure
+
+No configuration or complicated folder structures, just the files you need to build your app:
+
+```
+vite-template-react
+├── public
+│   ├── favicon.svg
+│   ├── react.svg
+│   ├── robots.txt
+│   ├── styled-component.svg
+│   ├── vite.svg
+│   └── vitest.svg
+├── src
+│   ├── assets
+│   │   ├── react.svg
+│   │   ├── vite.svg
+│   │   └── vitest..svg
+│   ├── components
+│   │   ├── Avatar
+│   │   │   ├── Avatar.test.tsx
+│   │   │   ├── Avatar.tsx
+│   │   │   └── index.ts
+│   │   ├── Card
+│   │   │   ├── Card.tsx
+│   │   │   └── index.ts
+│   │   ├── GlobalStyle
+│   │   │   ├── GlobalStyle.tsx
+│   │   │   └── index.ts
+│   │   └── ImageLink
+│   │       ├── ImageLink.test.tsx
+│   │       ├── ImageLink.tsx
+│   │       └── index.ts
+│   ├── test
+│   │   ├── App.test.tsx
+│   │   └── setup.ts
+│   ├── App.tsx
+│   ├── constants.ts
+│   ├── index.tsx
+│   └── logo.svg
+├── types
+│   ├── bun.env.d.ts
+│   ├── custom.d.ts
+│   └── vite-env.d.ts
+├── LICENSE
+├── README.md
+├── bun.lockb
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── vitest.config.ts
+```
+
+## Styleguide
+
+For coding style, I use [eslint](https://eslint.org/) along with my custom configuration, [@nyxb/eslint-config](https://github.com/nyxb/eslint-config).
 
 ## Credits
 
-Vite Template React is built and maintained by [Nyxb](https://safdarjamal.github.io).
+Vite Template React is built and maintained by [Nyxb](https://nyxb.nexus).
 
 ## License
 
